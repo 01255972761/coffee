@@ -1,0 +1,89 @@
+===============================================================================================================
+Quan hệ ràng buộc:
+
+User: -List<Bill> : các bill mà user đã thanh toán.
+
+Customer : -List<Bill>: các bill customer đã trả tiền.
+
+Menu: -List<Drink> : một loại menu ( cafe, trà sữa,...) chứa nhiều loại thức uống Drink.
+
+Drink: Menu : một loại drink thuộc một menu.
+
+Bill: 
+	User: nhân viên kí bill
+	Customer: khách hàng mua đơn.
+	List<BillDetail> list các bill detail.
+	
+BillDetail ( mỗi bill detail chứa một sản phâm, số lượng tương ứng, => từ listBill, bill tính được thành tiền):
+	Bil: thuộc Bill nào.
+	Drink: sản phẩm chọn thuộc loại drink nào.
+	
+===============================================================================================================
+List API:
+
+User:
+	findAllUser,
+	findById,
+	addNewUser,
+	deleteUser,
+	editUser
+
+Customer:
+	findAllUser,
+	findById,
+	addNewCustomer,
+	deleteCustomer,
+	EditCustomerInfo: Hạnh muốn sửa info
+
+Menu:
+	findAllMenu,
+	findById
+	deleteMenu
+	
+Drink:
+	findAllDrink,
+	findById,
+	findByName, Hạnh tìm kiếm trà sữa trong ô Search
+	delêteDrink
+	
+Bill:
+	findAllBill,
+	findById,
+	findByMonth Tháng 9 Hạnh bán được bao nhiêu cái Bill,
+	findByYear Năm 2019 Hạnh bán được bao nhiêu cái Bill,
+	findByDay: day + month + year: Ngày hôm nay được bao nhiêu cái Bill
+	findByUser: Hạnh thanh toán bao nhiêu cái Bill,
+	findByCustomer Hạnh trả tiền bao nhiêu cái Bill,
+	addNewBill.
+	
+BillDetail:
+	findAll,
+	findById,
+	findByBillId: Với cái Bill xyz => mở ra thấy Hạnh uống 3 ly ts, 3 bịch bánh tráng
+	findByDrink: Trong cái BillDetail này Hạnh uống trà sữa gì hiện lên
+	
+=============================================================================================
+Chức năng:
+
+Customer:
+- Hiển thị tất cả sản phẩm
+- Hiển thị sản phẩm khi chọn Menu
+- Search sản phẩm
+- Chọn sản phẩm để mua hàng
+- Xem giỏ hàng
+- Chỉnh sửa giỏ hàng
+- Chỉnh sửa thông tin của họ
+- Đặt hàng
+
+Admin:
+- Hiển thị tất cả sản phẩm
+- Hiển thị sản phẩm khi chọn Menu
+- Thêm menu
+- Thêm drink thuộc menu
+- Edit menu
+- Edit drink
+- Lọc đơn hàng theo ngày, theo tháng, theo năm ( bill có nhiều bill detail thì gom lại)
+- Tổng thu nhập theo ngày, tháng, năm
+- Xóa customer, xóa nhân viên user, xóa bill + billdetail ( chỉ admin mới đc xóa)
+- ....... Hết nghĩ đc rồi
+
